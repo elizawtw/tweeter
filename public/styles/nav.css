@@ -1,0 +1,38 @@
+nav {
+  font-family: 'Bungee', cursive;
+  background-color: #4056A1;
+  font: #FFFFFF;
+  
+
+ }
+
+ .box {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+
+ }
+ .top-nav {
+  height: 120px;
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 1.3em;
+  position: fixed;
+  
+ }
+
+ #nav-tweet {
+   font-family: sans-serif;
+   font-size: 0.7em;
+ }
+
+.fas {
+  color: red;
+  margin-top:-20px;
+  font-size: 0.7em;
+}
