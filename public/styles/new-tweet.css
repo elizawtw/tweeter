@@ -44,3 +44,7 @@ form {
   margin-top: 10px;
   font-size: 20px;
 }
+
+.counterLimit {
+  color: red;
+}

@@ -4,6 +4,9 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <!-- Timeago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
@@ -26,12 +29,17 @@
     <!--new-tweet CSS-->
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css"/>
 
+    <!--tweet CSS-->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    
   </head>
 
   <body>
@@ -44,7 +52,7 @@
       
         </div>
     </nav>
-    <header>
+    <header class="header">
       
       <div id="profile">
           <img src="/images/profile-hex.png"> 
@@ -65,10 +73,39 @@
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter">
             <button class="tweet-button" type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+            <!-- <div id="counter2"></div> -->
+            <span name="counter" class="counter" id="output" for="tweet-text">140</span> 
           </div>
         </form>
       </section>
+      <section>
+        <article class="tweet">
+          <header>
+            <div class="tweet-profile">
+              <img src="/images/profile-hex.png"> 
+              <h1>Eliza</h1>
+            </div>
+           
+            <h2>@twew</h2>
+       
+          </header>
+          <div class="tweet-input">
+            <p> hello world!</p>
+          </div>
+          <footer>
+            <p>10 days ago</p>
+            <span>
+              <i class="fa fa-flag fa-xs" aria-hidden="true"></i>
+              <i class="fa fa-retweet fa-xs" aria-hidden="true"></i>
+              <i class="fa fa-heart fa-xs" aria-hidden="true"></i>
+            </span>
+
+          </footer>
+        </article>
+      </section>
     </main>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 </html>
