@@ -22,6 +22,7 @@
   margin-top: 7px;
   margin-left: 10px;
   margin-right: 10px;
+  
 }
 
 .tweet header {
@@ -38,9 +39,9 @@
 }
 
 .tweet header h1 {
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: grey;
-  margin-top: 15px;
+  align-self: center;
  
 }
 
@@ -48,7 +49,7 @@
   font-size: 0.8em;
   font-weight: 100;
   color:gray;
-  margin-right: 10px;
+  margin-right: 35px;
 }
 
 .tweet-input {
@@ -64,7 +65,7 @@
 
 .tweet footer {
   border-top: solid 2px grey;
-  width:90vw;
+  width:92vw;
   height: 5px;
   margin-left: 15px;
   display: flex;
