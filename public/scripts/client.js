@@ -12,18 +12,16 @@ $(document).ready(() => {
     }
     $.ajax(params)
   .then((results)=>{
-    
       renderTweets(results)
   })
   .catch((err)=>{
       console.log(`err loading articles: ${err}`)
   })
-  .always(()=>{
-      console.log(`I'll always say this nomatter what`)
-  })
+  
 }
 
   loadTweets();
+
 
     const $form = $(".tweet-form")
     $form.submit(function(event) {
@@ -31,10 +29,16 @@ $(document).ready(() => {
       let data = $(this).serialize();
       let input = $("#tweet-text").val();
       if (input === "") {
-        return alert("Please write something.");
+        $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").slideDown(500).fadeOut(3000));
+        return;
+      } 
+      if (input === null) {
+        $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").slideDown(500).fadeOut(3000));
+        return;
       } 
       if (input.length > 140) {
-       return alert("This has exceeded our limit of 140 characters.")
+        $($form).before($("<p>❗️ Oops! Please limit to 140 characters ❗️</p>").addClass("error-message").slideDown(300).fadeOut(3000));
+        return;
       }
         let params = {
             url: "/tweets",
@@ -53,13 +57,22 @@ $(document).ready(() => {
 
 
  const renderTweets = function(tweets) {
-   let result;
+  
    for (const tweet of tweets) {
      createTweetElement(tweet);
-    $("#tweet-container").append(createTweetElement(tweet))
+    $("#tweet-container").prepend(createTweetElement(tweet))
+    // $(".tweet-form").trigger("reset");
+    
+    
    }
    
  }
+
+ const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 
  const createTweetElement = function(input) {
@@ -67,18 +80,18 @@ $(document).ready(() => {
      `<article class="tweet">
      <header>
      <div class="tweet-profile">
-       <img src="${input.user.avatars}"> 
-       <h1>${input.user.name}</h1>
+       <img src="${escape(input.user.avatars)}"> 
+       <h1>${escape(input.user.name)}</h1>
      </div>
     
-     <h2>${input.user.handle}</h2>
+     <h2>${escape(input.user.handle)}</h2>
 
    </header>
    <div class="tweet-input">
-     <p> ${input.content.text}</p>
+     <p> ${escape(input.content.text)}</p>
    </div>
    <footer>
-     <p>${timeago.format(new Date(input.created_at))}</p>
+     <p>${escape(timeago.format(new Date(input.created_at)))}</p>
      <span>
        <i class="fa fa-flag fa-xs" aria-hidden="true"></i>
        <i class="fa fa-retweet fa-xs" aria-hidden="true"></i>
