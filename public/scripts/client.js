@@ -30,6 +30,26 @@ $(document).ready(() => {
     }
   ]
 
+  
+    const $form = $(".tweet-form")
+    $form.submit(function(event) {
+      event.preventDefault();
+      let data = $(this).serialize();
+      console.log(data)
+        let params = {
+            url: "/tweets",
+            method: "POST",
+            data
+        }
+        $.ajax(params)
+        .then((results)=>{
+            console.log("result", results)
+        })
+        .catch((err)=>{
+            console.log(`error trying to load more: ${err}`)
+        })
+    })
+
 
  const renderTweets = function(tweets) {
    let result;
