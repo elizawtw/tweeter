@@ -5,37 +5,37 @@
  */
 $(document).ready(() => {
 
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
+  const loadTweets = () => {
+    const params = {
+        url: "/tweets",
+        method: "GET"
     }
-  ]
+    $.ajax(params)
+  .then((results)=>{
+    
+      renderTweets(results)
+  })
+  .catch((err)=>{
+      console.log(`err loading articles: ${err}`)
+  })
+  .always(()=>{
+      console.log(`I'll always say this nomatter what`)
+  })
+}
 
-  
+  loadTweets();
+
     const $form = $(".tweet-form")
     $form.submit(function(event) {
       event.preventDefault();
       let data = $(this).serialize();
-      console.log(data)
+      let input = $("#tweet-text").val();
+      if (input === "") {
+        return alert("Please write something.");
+      } 
+      if (input.length > 140) {
+       return alert("This has exceeded our limit of 140 characters.")
+      }
         let params = {
             url: "/tweets",
             method: "POST",
@@ -43,11 +43,12 @@ $(document).ready(() => {
         }
         $.ajax(params)
         .then((results)=>{
-            console.log("result", results)
+          loadTweets();
         })
         .catch((err)=>{
             console.log(`error trying to load more: ${err}`)
         })
+      
     })
 
 
@@ -89,6 +90,6 @@ $(document).ready(() => {
      return html;
    
  }
-renderTweets(data)
+
  
 })

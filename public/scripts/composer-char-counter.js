@@ -10,7 +10,7 @@ $(document).ready(function() {
     const $counter = input.closest("form").find(".counter");
     $counter.html(charLeft)
     if(charLeft < 0) {
-      console.log('here')
+      
       $counter.addClass("counterLimit");
     } else {
       $counter.removeClass("counterLimit");
