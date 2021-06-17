@@ -17,6 +17,7 @@ form {
   border: none;
   color: white;
   margin-top: 10px;
+  margin-left: 20px;
   padding: 10px 10px;
   text-align: center;
   text-decoration: none;
@@ -27,12 +28,13 @@ form {
 
 /* textarea */
 #tweet-text {
-  width: 95vw;
+  width: 90vw;
   border: none;
   resize: none;
   border-bottom: 3px solid #545149;
   align-items: center;
   background-color: #f4f1ec;
+  margin-left:20px;
 }
 
 .button-counter {

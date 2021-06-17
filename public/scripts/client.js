@@ -29,15 +29,15 @@ $(document).ready(() => {
     let data = $(this).serialize();
     let input = $("#tweet-text").val();
     if (input === "") {
-      $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").slideDown(500).fadeOut(3000));
+      $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").fadeIn(100).fadeOut(3000));
       return;
     }
     if (input === null) {
-      $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").slideDown(500).fadeOut(3000));
+      $($form).before($("<p>❗️ Please write something ❗️</p>").addClass("error-message").fadeIn(500).fadeOut(3000));
       return;
     }
     if (input.length > 140) {
-      $($form).before($("<p>❗️ Oops! Please limit to 140 characters ❗️</p>").addClass("error-message").slideDown(300).fadeOut(3000));
+      $($form).before($("<p>❗️ Oops! Please limit to 140 characters ❗️</p>").addClass("error-message").fadeIn(100).fadeOut(3000));
       return;
     }
     let params = {
