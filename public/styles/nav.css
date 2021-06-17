@@ -26,6 +26,12 @@ nav {
   
  }
 
+ .compose {
+   background-color: transparent;
+   border:none;
+   margin-top: -20px;
+ }
+
  #nav-tweet {
    font-family: sans-serif;
    font-size: 0.7em;
@@ -33,6 +39,5 @@ nav {
 
 .fas {
   color: red;
-  margin-top:-20px;
   font-size: 0.7em;
 }

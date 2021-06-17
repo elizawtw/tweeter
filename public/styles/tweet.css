@@ -19,15 +19,6 @@
 
 }
 
-.tweet img {
-  width: 70px;
-  height: 70px;
-  margin-top: 7px;
-  margin-left: 10px;
-  margin-right: 10px;
-  
-}
-
 .tweet header {
   display: flex;
   flex-direction: row;
@@ -39,6 +30,15 @@
 .tweet-profile {
   display: flex;
   flex-direction: row;
+}
+
+.tweet-profile img {
+  width: 70px;
+  height: 70px;
+  margin-top: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+  
 }
 
 .tweet header h1 {
