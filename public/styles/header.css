@@ -23,16 +23,12 @@
     padding-top: 20px;
     align-items:center;
     margin-top: 100px;
-
   }
   /* profile picture */
   #profile img {
     height: 100%;
     width: 100%;
     margin-left:auto;
-      
- 
   }
-
 
 }
