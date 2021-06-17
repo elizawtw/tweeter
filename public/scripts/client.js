@@ -9,22 +9,22 @@ $(document).ready(() => {
     const params = {
       url: "/tweets",
       method: "GET"
-    }
+    };
     $.ajax(params)
       .then((results) => {
-        renderTweets(results)
+        renderTweets(results);
       })
       .catch((err) => {
-        console.log(`err loading articles: ${err}`)
-      })
+        console.log(`err loading articles: ${err}`);
+      });
 
-  }
+  };
 
   loadTweets();
 
-// conditions for input validation
-  const $form = $(".tweet-form")
-  $form.submit(function (event) {
+  // conditions for input validation
+  const $form = $(".tweet-form");
+  $form.submit(function(event) {
     event.preventDefault();
     let data = $(this).serialize();
     let input = $("#tweet-text").val();
@@ -44,39 +44,39 @@ $(document).ready(() => {
       url: "/tweets",
       method: "POST",
       data
-    }
+    };
     $.ajax(params)
       .then((results) => {
         loadTweets();
       })
       .catch((err) => {
-        console.log(`error trying to load more: ${err}`)
-      })
+        console.log(`error trying to load more: ${err}`);
+      });
 
-  })
+  });
 
-//function for rendering tweets
-  const renderTweets = function (tweets) {
-      $("#tweet-container").empty();
+  //function for rendering tweets
+  const renderTweets = function(tweets) {
+    $("#tweet-container").empty();
     for (const tweet of tweets) {
       createTweetElement(tweet);
-      $("#tweet-container").prepend(createTweetElement(tweet))
+      $("#tweet-container").prepend(createTweetElement(tweet));
       $("#tweet-text").val("");
-      $("#output").html("140")
+      $("#output").html("140");
 
     }
 
-  }
+  };
 
   //escape function to prevent cross-site scripting
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-//create tweets from dynamic data
-  const createTweetElement = function (input) {
+  //create tweets from dynamic data
+  const createTweetElement = function(input) {
     let html =
       `<article class="tweet">
         <header>
@@ -100,24 +100,24 @@ $(document).ready(() => {
           </span>
 
         </footer>
-      </article>`
+      </article>`;
     return html;
 
-  }
-//back to top button
-const btn = $('#top-button');
+  };
+  //back to top button
+  const btn = $('#top-button');
 
-$(window).scroll(function() {
-  if ($(window).scrollTop() > 300) {
-    btn.addClass('show');
-  } else {
-    btn.removeClass('show');
-  }
+  $(window).scroll(function() {
+    if ($(window).scrollTop() > 20) {
+      btn.addClass('show');
+    } else {
+      btn.removeClass('show');
+    }
+  });
+
+  btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '20');
+  });
+
 });
-
-btn.on('click', function(e) {
-  e.preventDefault();
-  $('html, body').animate({scrollTop:0}, '300');
-});
-
-})
