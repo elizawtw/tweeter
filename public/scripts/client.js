@@ -22,7 +22,7 @@ $(document).ready(() => {
 
   loadTweets();
 
-
+// conditions for input validation
   const $form = $(".tweet-form")
   $form.submit(function (event) {
     event.preventDefault();
@@ -55,9 +55,9 @@ $(document).ready(() => {
 
   })
 
-
+//function for rendering tweets
   const renderTweets = function (tweets) {
-
+      $("#tweet-container").empty();
     for (const tweet of tweets) {
       createTweetElement(tweet);
       $("#tweet-container").prepend(createTweetElement(tweet))
@@ -68,13 +68,14 @@ $(document).ready(() => {
 
   }
 
+  //escape function to prevent cross-site scripting
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-
+//create tweets from dynamic data
   const createTweetElement = function (input) {
     let html =
       `<article class="tweet">
@@ -103,6 +104,20 @@ $(document).ready(() => {
     return html;
 
   }
+//back to top button
+const btn = $('#top-button');
 
+$(window).scroll(function() {
+  if ($(window).scrollTop() > 300) {
+    btn.addClass('show');
+  } else {
+    btn.removeClass('show');
+  }
+});
+
+btn.on('click', function(e) {
+  e.preventDefault();
+  $('html, body').animate({scrollTop:0}, '300');
+});
 
 })

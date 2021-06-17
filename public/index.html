@@ -4,6 +4,8 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- Timeago -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -35,6 +37,9 @@
     <!--tweet-error CSS-->
     <link rel="stylesheet" href="/styles/error.css" type="text/css"/>
 
+    <!--top-button CSS-->
+    <link rel="stylesheet" href="/styles/top-button.css" type="text/css" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -50,70 +55,77 @@
   </head>
 
   <body>
+    <a id="top-button"><i class="fas fa-angle-double-up"></i></a>
     <!-- Top nav bar (fixed) -->
     <nav class="top-nav">
       <span class="logo">tweeter</span>
       <div class="box">
         <p id="nav-tweet"><strong>Write</strong> a new tweet</p>
-        <button class="compose" type="submit">
+        <button class="compose">
           <i class="fas fa-angle-double-down"></i>
         </button>
+        
         
       
         </div>
     </nav>
-    <header class="header">
+    <div id="box1">
+      <header class="header">
       
-      <div id="profile">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2 class="name">Your Name</h2>
-      </div>
-  </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST" class="tweet-form">
-          
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div class="button-counter">
-            <button class="tweet-button" type="submit">Tweet</button>
-            <!-- <div id="counter2"></div> -->
-            <span name="counter" class="counter" id="output" for="tweet-text">140</span> 
-          </div>
-        </form>
-      </section>
-      <section id="tweet-container">
-        <!-- <article  class="tweet"> -->
-          <!-- <header>
-            <div class="tweet-profile">
-              <img src="/images/profile-hex.png"> 
-              <h1>Eliza</h1>
+        <div id="profile">
+            <img src="/images/profile-hex.png"> 
+        </div>
+        <br>
+        <div>
+            <h2 class="name">Eliza W</h2>
+        </div>
+    </header>
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets" method="POST" class="tweet-form">
+            
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div class="button-counter">
+              <button class="tweet-button" type="submit">Tweet</button>
+              
+              <span name="counter" class="counter" id="output" for="tweet-text">140</span> 
             </div>
-           
-            <h2>@twew</h2>
-       
-          </header>
-          <div class="tweet-input">
-            <p> hello world!</p>
-          </div>
-          <footer>
-            <p>10 days ago</p>
-            <span>
-              <i class="fa fa-flag fa-xs" aria-hidden="true"></i>
-              <i class="fa fa-retweet fa-xs" aria-hidden="true"></i>
-              <i class="fa fa-heart fa-xs" aria-hidden="true"></i>
-            </span>
+          </form>
+        </section>
+      
+        <section id="tweet-container">
+          <!-- <article  class="tweet"> -->
+            <!-- <header>
+              <div class="tweet-profile">
+                <img src="/images/profile-hex.png"> 
+                <h1>Eliza</h1>
+              </div>
+             
+              <h2>@twew</h2>
+         
+            </header>
+            <div class="tweet-input">
+              <p> hello world!</p>
+            </div>
+            <footer>
+              <p>10 days ago</p>
+              <span>
+                <i class="fa fa-flag fa-xs" aria-hidden="true"></i>
+                <i class="fa fa-retweet fa-xs" aria-hidden="true"></i>
+                <i class="fa fa-heart fa-xs" aria-hidden="true"></i>
+              </span>
+  
+            </footer> -->
+          <!-- </article> -->
+        </section>
+      </main>
 
-          </footer> -->
-        <!-- </article> -->
-      </section>
-    </main>
+    </div>
+    
   </body>
  
 </html>

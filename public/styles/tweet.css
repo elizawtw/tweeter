@@ -1,3 +1,12 @@
+#tweet-container {
+  width: 100%;
+  height: 95vh;
+  margin-left: 40px;
+  margin-right: 40px;
+  display:flex;
+  flex-direction: column;
+}
+
 .tweet {
   display: flex;
   flex-direction: column;
@@ -8,7 +17,7 @@
   margin-top: 50px;
   background-color:#f4f1ec;
   height: 20vh;
-  width: 95vw;
+  width: 90vw;
 }
 
 .tweet:hover {
@@ -52,7 +61,7 @@
   font-size: 0.8em;
   font-weight: 100;
   color:gray;
-  margin-right: 35px;
+  margin-right: 50px;
 }
 
 .tweet-input {
@@ -68,8 +77,8 @@
 
 .tweet footer {
   border-top: solid 2px grey;
-  width:92vw;
-  height: 5px;
+  width:85vw;
+  height: 35px;
   margin-left: 15px;
   display: flex;
   justify-content: space-between;
@@ -99,4 +108,26 @@
   color: lightblue;
 }
 
+@media screen and (min-width:1024px) {
+  
+  #tweet-container{
+    width: 60vw;
+    margin-left:20px;
+    margin-right: 20px;
+  }
 
+  .tweet {
+    width:60vw;
+  }
+  
+  .tweet footer {
+    width:57vw;
+    height: 100px;
+    border-top: solid 2px grey;
+  }
+
+  
+  
+ 
+
+}
